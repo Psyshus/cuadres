@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado de Cuenta</title>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        /* Estilo general */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9faf7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ff6e14;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, button:focus {
+            outline: none;
+            border-color: #ff6e14;
+            box-shadow: 0 0 5px rgba(255, 110, 20, 0.5);
+        }
+        button {
+            background-color: #ff6e14;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e66010;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9faf7;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+        }
+        footer span {
+            color: #ff6e14;
+            font-weight: bold;
+        }
+        footer .heart {
+            color: #ff6e14;
+        }
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            input, select, button {
+                font-size: 0.9rem;
+            }
+        }
+        /* Animación sutil para el botón */
+        button {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estado de Cuenta</h1>
+        <form id="cuentasForm">
+            <div class="form-group">
+                <label for="periodoFacturacion">Período de Facturación (dd/mm/aaaa - dd/mm/aaaa):</label>
+                <input type="text" id="periodoFacturacion" placeholder="Ejemplo: 01/12/2024 - 31/12/2024">
+            </div>
+            <div class="form-group">
+                <label for="fechaLimite">Fecha Límite de Pago (dd/mm/aaaa):</label>
+                <input type="text" id="fechaLimite" placeholder="Ejemplo: 15/12/2024">
+            </div>
+            <div class="form-group">
+                <label for="pagoIntereses">Pago para Evitar Intereses (MXN):</label>
+                <input type="number" id="pagoIntereses" placeholder="Ejemplo: 1000">
+            </div>
+            <div class="form-group">
+                <label for="pagoRecibido">Pago Recibido (MXN):</label>
+                <input type="number" id="pagoRecibido" placeholder="Ejemplo: 500">
+            </div>
+            <div class="form-group">
+                <label for="cargosHechos">Cargos Realizados en el Periodo (MXN):</label>
+                <input type="number" id="cargosHechos" placeholder="Ejemplo: 200">
+            </div>
+            <div class="form-group">
+                <label for="mensualidadMSI">Mensualidad de Compras MSI (MXN):</label>
+                <input type="number" id="mensualidadMSI" placeholder="Ejemplo: 150">
+            </div>
+            <div class="form-group">
+                <label for="pagoPendienteAnterior">Pago Pendiente del Periodo Anterior (MXN):</label>
+                <input type="number" id="pagoPendienteAnterior" placeholder="Ejemplo: 300">
+            </div>
+            <button type="button" id="calcular">Calcular</button>
+        </form>
+        <div class="result" id="resultado">
+            <!-- Los resultados aparecerán aquí -->
+        </div>
+    </div>
+    <footer>
+        <p>Hecho con <span class="heart">❤</span> por <span>Erick VL</span></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
